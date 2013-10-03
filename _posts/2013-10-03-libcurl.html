@@ -3,11 +3,12 @@ layout: default
 title: The first to use libcurl
 ---
 
+<body>
 <h2>{{ page.title }}</h2>
 
-<p>I began to use libcurl yesterday. The idea is that I want to use libcurl in my program to download something from a website. I coded with the help from some guide on-line. When I finished my coding, I compiled and got the binary executable file. I ran it and got a file as I intened. But the size of the file is 0 byte!</p>
+<p>I began to use libcurl yesterday. My idea is that I want to use libcurl in my program to download something from a website. I coded with the help of some guide on-line. When I finished my coding, I compiled and got the binary executable file. I ran it and got a file as I intened. But the size of the file is 0 byte!</p>
 
-<p>So I began to debug what is the problem. Finally I found out it out this morning! It was a very basic mistake... When I transfer an argument (a CURL handle) into the function I designed to init a CURL connection, I use the "call-by-value" style, which actrually makes everything I did in the function invisible outside, so the hnadle I passed to the function is always "NULL". So when I use "curl_easy_perform", it did nothing.</p>
+<p>So I began to debug to find out what is the problem. Finally I found it out this morning! It was a very basic mistake... When I passed an argument (a CURL handle) into the function I designed to init a CURL connection, I used the "call-by-value" style, which actually made everything I did in the function invisible outside, so the value of the handler I passed to the function is always "NULL". So when I use "curl_easy_perform", it did nothing.</p>
 
 <p>This is the first story happened in my journey of "developing something for my master's degree. Best wishes for myself, haha </p>
 
@@ -27,3 +28,5 @@ title: The first to use libcurl
     </script>
     <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+</body>
